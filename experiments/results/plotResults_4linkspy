@@ -1,0 +1,91 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Sun Apr 30 19:18:35 2023
+
+@author: satrai
+"""
+
+import csv 
+import matplotlib.pyplot as plt
+import numpy as np
+
+#baseline_file = 'C:\\Users\\houss\\Desktop\planiot--priorities\\experiments\\results\\susbcribers_results_baseline.csv'
+#planner_file = 'C:\\Users\\houss\\Desktop\planiot--priorities\\experiments\\results\\susbcribers_results_planner.csv'
+#categoriesfile = 'C:\\Users\\houss\\Desktop\planiot--priorities\\experiments\\results\\appCategories.csv'
+
+baseline_file_an = '/home/satrai/planiot--priorities/results/mininet/testing/4links/result_an_baseline.csv'
+baseline_file_rt = '/home/satrai/planiot--priorities/results/mininet/testing/4links/result_rt_baseline.csv'
+baseline_file_ts = '/home/satrai/planiot--priorities/results/mininet/testing/4links/result_ts_baseline.csv'
+baseline_file_vs = '/home/satrai/planiot--priorities/results/mininet/testing/4links/result_vs_baseline.csv'
+
+planner_file_an = '/home/satrai/planiot--priorities/results/mininet/testing/4links/result_an_planner.csv'
+planner_file_rt = '/home/satrai/planiot--priorities/results/mininet/testing/4links/result_rt_planner.csv'
+planner_file_ts = '/home/satrai/planiot--priorities/results/mininet/testing/4links/result_ts_planner.csv'
+planner_file_vs = '/home/satrai/planiot--priorities/results/mininet/testing/4links/result_vs_planner.csv'
+
+categoriesfile = '/home/satrai/planiot--priorities/experiments/results/appCategories.csv'
+
+app_cat_dict = dict()
+app_response_time_dict = dict()
+app_nb_subscriptions_dict = dict()
+
+with open(categoriesfile) as csvfile:
+    reader = csv.reader(csvfile, delimiter=',')
+    for row in reader:
+        app = row[0]
+        category = row[1]
+        app_cat_dict[app] = category
+   
+for app in app_cat_dict.keys():
+    app_response_time_dict[app] = 0
+    app_nb_subscriptions_dict[app] = 0
+    
+def return_response_times(resultsfile):
+    with open(resultsfile) as csvfile:
+        reader = csv.reader(csvfile, delimiter=',')
+        i = 0
+        responsetime = 0
+        nb_subs = 0
+        for row in reader:
+            if i != 0:
+                responsetime += float(row[6])
+                nb_subs += 1
+            i+=1
+
+    return responsetime / nb_subs
+
+
+    
+responsetimes_baseline_an = return_response_times(baseline_file_an)
+responsetimes_baseline_rt = return_response_times(baseline_file_rt)
+responsetimes_baseline_ts = return_response_times(baseline_file_ts)
+responsetimes_baseline_vs = return_response_times(baseline_file_vs)
+
+responsetimes_planner_an = return_response_times(planner_file_an)
+responsetimes_planner_rt = return_response_times(planner_file_rt)
+responsetimes_planner_ts = return_response_times(planner_file_ts)
+responsetimes_planner_vs = return_response_times(planner_file_vs)
+
+responsetimes_baseline = [responsetimes_baseline_an, responsetimes_baseline_rt, responsetimes_baseline_ts, responsetimes_baseline_vs]
+responsetimes_planner = [responsetimes_planner_an, responsetimes_planner_rt, responsetimes_planner_ts, responsetimes_planner_vs]
+print(responsetimes_baseline)
+print(responsetimes_planner)
+categories = ['AN', 'RT', 'TS', 'VS']
+
+fig, ax = plt.subplots()
+X_axis = np.arange(len(categories))
+#
+ax.bar(X_axis - 0.15, responsetimes_baseline, 0.3, color='orange', label='default')
+ax.bar(X_axis + 0.15, responsetimes_planner, 0.3, color='blue', label='PlanEMQX')
+ax.legend()
+ax.set_xlabel('Application Category')
+ax.set_ylabel('Response Time (sec)')
+plt.xticks(X_axis, categories)
+plt.savefig("/home/satrai/planiot--priorities/results/mininet/testing/4links/responsetime.pdf", bbox_inches="tight")
+plt.show()
+# plt.xlabel('Application Category')
+# plt.ylabel('Response Time (sec)')
+# plt.bar(categories, responsetimes)
+# plt.show()
+

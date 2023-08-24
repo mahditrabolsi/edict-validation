@@ -1,0 +1,296 @@
+{
+  "IoTdevices": [
+    {
+      "deviceId": "topic1_source",
+      "deviceName": "topic1_source",
+      "publishFrequency": 5,
+      "messageSize": 102400,
+      "distribution": "exponential",
+      "publishesTo": ["topic_topic1"]
+    },
+    {
+      "deviceId": "topic2_source",
+      "deviceName": "topic2_source",
+      "publishFrequency": 1,
+      "messageSize": 1200,
+      "distribution": "exponential",
+      "publishesTo": ["topic_topic2"]
+    },
+    {
+      "deviceId": "topic3_source",
+      "deviceName": "topic3_source",
+      "publishFrequency": 200,
+      "messageSize": 1000,
+      "distribution": "exponential",
+      "publishesTo": ["topic_topic3"]
+    },
+    {
+      "deviceId": "topic4_source",
+      "deviceName": "topic4_source",
+      "publishFrequency": 200,
+      "messageSize": 1200,
+      "distribution": "exponential",
+      "publishesTo": ["topic_topic4"]
+    },
+    {
+      "deviceId": "topic5_source",
+      "deviceName": "topic5_source",
+      "publishFrequency": 1,
+      "messageSize": 400,
+      "distribution": "exponential",
+      "publishesTo": ["topic_topic5"]
+    },
+    {
+      "deviceId": "topic6_source",
+      "deviceName": "topic6_source",
+      "publishFrequency": 3,
+      "messageSize": 486,
+      "distribution": "exponential",
+      "publishesTo": ["topic_topic6"]
+    },
+    {
+      "deviceId": "topic7_source",
+      "deviceName": "topic7_source",
+      "publishFrequency": 3,
+      "messageSize": 324,
+      "distribution": "exponential",
+      "publishesTo": ["topic_topic7"]
+    },
+    {
+      "deviceId": "topic8_source",
+      "deviceName": "topic8_source",
+      "publishFrequency": 5,
+      "messageSize": 102400,
+      "distribution": "exponential",
+      "publishesTo": ["topic_topic8"]
+    },
+    {
+      "deviceId": "topic9_source",
+      "deviceName": "topic9_source",
+      "publishFrequency": 5,
+      "messageSize": 102400,
+      "distribution": "exponential",
+      "publishesTo": ["topic_topic9"]
+    }
+  ],
+
+  "virtualSensors": [
+  ],
+
+"actuators": [
+  ],
+  
+  "applications": [
+    {
+      "applicationId": "app_app1",
+      "applicationName": "app_app1",
+      "applicationCategory": "AN",
+      "priority": 3,
+      "processingRate": 1000,
+      "processingDistribution": "exponential",
+      "subscribesTo": ["topic_topic1"]
+    },
+    {
+      "applicationId": "app_app2",
+      "applicationName": "app_app2",
+      "applicationCategory": "AN",
+      "priority": 1,
+      "processingRate": 1000,
+      "processingDistribution": "exponential",
+      "subscribesTo": ["topic_topic2"]
+    },
+    {
+      "applicationId": "app_app3",
+      "applicationName": "app_app3",
+      "applicationCategory": "AN",
+      "priority": 2,
+      "processingRate": 1000,
+      "processingDistribution": "exponential",
+      "subscribesTo": ["topic_topic4"]
+    },
+    {
+      "applicationId": "app_app4",
+      "applicationName": "app_app4",
+      "applicationCategory": "AN",
+      "priority": 0,
+      "processingRate": 1000,
+      "processingDistribution": "exponential",
+      "subscribesTo": ["topic_topic1", "topic_topic3", "topic_topic8"]
+    },
+    {
+      "applicationId": "app_app5",
+      "applicationName": "app_app5",
+      "applicationCategory": "AN",
+      "priority": 0,
+      "processingRate": 1000,
+      "processingDistribution": "exponential",
+      "subscribesTo": ["topic_topic2", "topic_topic5", "topic_topic8"]
+    },
+    {
+      "applicationId": "app_app6",
+      "applicationName": "app_app6",
+      "applicationCategory": "RT",
+      "priority": 0,
+      "processingRate": 1000,
+      "processingDistribution": "exponential",
+      "subscribesTo": ["topic_topic3"]
+    },
+    {
+      "applicationId": "app_app7",
+      "applicationName": "app_app7",
+      "applicationCategory": "RT",
+      "priority": 0,
+      "processingRate": 1000,
+      "processingDistribution": "exponential",
+      "subscribesTo": ["topic_topic4"]
+    },
+    {
+      "applicationId": "app_app8",
+      "applicationName": "app_app8",
+      "applicationCategory": "RT",
+      "priority": 0,
+      "processingRate": 1000,
+      "processingDistribution": "exponential",
+      "subscribesTo": ["topic_topic1", "topic_topic5", "topic_topic8"]
+    },	
+    {
+      "applicationId": "app_app9",
+      "applicationName": "app_app9",
+      "applicationCategory": "RT",
+      "priority": 0,
+      "processingRate": 1000,
+      "processingDistribution": "exponential",
+      "subscribesTo": ["topic_topic3", "topic_topic2"]
+    },
+    {
+      "applicationId": "app_app10",
+      "applicationName": "app_app10",
+      "applicationCategory": "TS",
+      "priority": 0,
+      "processingRate": 1000,
+      "processingDistribution": "exponential",
+      "subscribesTo": ["topic_topic6"]
+    },
+    {
+      "applicationId": "app_app11",
+      "applicationName": "app_app11",
+      "applicationCategory": "TS",
+      "priority": 0,
+      "processingRate": 1000,
+      "processingDistribution": "exponential",
+      "subscribesTo": ["topic_topic7", "topic_topic2"]
+    },
+    {
+      "applicationId": "app_app12",
+      "applicationName": "app_app12",
+      "applicationCategory": "VS",
+      "priority": 0,
+      "processingRate": 1000,
+      "processingDistribution": "exponential",
+      "subscribesTo": ["topic_topic1", "topic_topic8"]
+    },
+    {
+      "applicationId": "app_app13",
+      "applicationName": "app_app13",
+      "applicationCategory": "VS",
+      "priority": 0,
+      "processingRate": 1000,
+      "processingDistribution": "exponential",
+      "subscribesTo": ["topic_topic9"]
+    }
+  ],
+
+"applicationCategories": [
+  {
+    "categoryId": "AN",
+    "categoryName": "analytics"
+  },
+  {
+    "categoryId": "RT",
+    "categoryName": "realtime"
+  },
+  {
+    "categoryId": "TS",
+    "categoryName": "transactional"
+  },
+  {
+    "categoryId": "VS",
+    "categoryName": "videoStreaming"
+  }
+],
+  "topics": [
+    {
+      "topicId": "topic_topic1",
+      "topicName": "topic_topic1",
+      "publishers": ["topic1_source"],
+      "subscribers": ["app_app1", "app_app4", "app_app8", "app_app12"]
+    },
+    {
+      "topicId": "topic_topic2",
+      "topicName": "topic_topic2",
+      "publishers": ["topic2_source"],
+      "subscribers": ["app_app2", "app_app5", "app_app9", "app_app11"]
+    },
+    {
+      "topicId": "topic_topic3",
+      "topicName": "topic_topic3",
+      "publishers": ["topic3_source"],
+      "subscribers": ["app_app3", "app_app4", "app_app6", "app_app9"]
+    },
+    {
+      "topicId": "topic_topic4",
+      "topicName": "topic_topic4",
+      "publishers": ["topic4_source"],
+      "subscribers": ["app_app3", "app_app7"]
+    },
+    {
+      "topicId": "topic_topic5",
+      "topicName": "topic_topic5",
+      "publishers": ["topic5_source"],
+      "subscribers": ["app_app5", "app_app8"]
+    },
+    {
+      "topicId": "topic_topic6",
+      "topicName": "topic_topic6",
+      "publishers": ["topic6_source"],
+      "subscribers": ["app_app10"]
+    },
+    {
+      "topicId": "topic_topic7",
+      "topicName": "topic_topic7",
+      "publishers": ["topic7_source"],
+      "subscribers": ["app_app11"]
+    },
+    {
+      "topicId": "topic_topic8",
+      "topicName": "topic_topic8",
+      "publishers": ["topic8_source"],
+      "subscribers": ["app_app4", "app_app8", "app_app12"]
+    },
+    {
+      "topicId": "topic_topic9",
+      "topicName": "topic_topic9",
+      "publishers": ["topic9_source"],
+      "subscribers": ["app_app5", "app_app13"]
+    }	
+  ],
+
+  "broker": [
+  {
+    "brokerId": "input",
+    "brokerName": "input",
+    "bufferSize": 10000,
+    "processingRate": 100000000,
+    "topics": ["topic_topic1", "topic_topic2", "topic_topic3", "topic_topic4", "topic_topic5", "topic_topic6", "topic_topic7",
+		"topic_topic8", "topic_topic9"]
+  }
+],
+
+"systemBandwidth": 280,
+"bandwidthPolicy": "none",
+"commChannelLossAN": 0,
+"commChannelLossRT": 0,
+"commChannelLossTS": 0,
+"commChannelLossVS": 0,
+"brokerCapacity": -1
+}

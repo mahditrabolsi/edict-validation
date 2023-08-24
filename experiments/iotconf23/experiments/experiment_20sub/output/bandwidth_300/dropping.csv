@@ -1,0 +1,21 @@
+Unnamed: 0,topic,app,received_count,message_sent,dropping,percentage
+0,topic_amazonecho,app_app21,300,300,0,0.0
+1,topic_bms,app_app2,285,300,15,5.0
+2,topic_bms,app_app21,299,300,1,0.33333333333333337
+3,topic_energymanagement,app_app1,286,300,14,4.666666666666667
+4,topic_energymanagement,app_app2,286,300,14,4.666666666666667
+5,topic_firedetection,app_app1,287,300,13,4.333333333333334
+6,topic_firedetection,app_app22,300,300,0,0.0
+7,topic_firedetection,app_app23,300,300,0,0.0
+8,topic_intrusiondetection,app_app2,280,300,20,6.666666666666667
+9,topic_intrusiondetection,app_app21,297,300,3,1.0
+10,topic_intrusiondetection,app_app36,288,300,12,4.0
+11,topic_occupancymanagement,app_app12,300,300,0,0.0
+12,topic_occupancymanagement,app_app21,300,300,0,0.0
+13,topic_printing,app_app11,300,300,0,0.0
+14,topic_printing,app_app2,291,300,9,3.0
+15,topic_smartthings,app_app1,287,300,13,4.333333333333334
+16,topic_smartthings,app_app22,300,300,0,0.0
+17,topic_videosurveillance,app_app2,275,300,25,8.333333333333332
+18,topic_videosurveillance,app_app36,290,300,10,3.3333333333333335
+19,topic_videosurveillance,app_app38,290,300,10,3.3333333333333335

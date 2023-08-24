@@ -1,0 +1,173 @@
+{
+        "IoTdevices": [
+                {
+                        "deviceId": "topic1_source",
+                        "deviceName": "topic1_source",
+                        "publishFrequency": 7,
+                        "messageSize": 50000,
+                        "distribution": "exponential",
+                        "publishesTo": [
+                                "topic_topic1"
+                        ]
+                },
+                {
+                        "deviceId": "topic2_source",
+                        "deviceName": "topic2_source",
+                        "publishFrequency": 5,
+                        "messageSize": 70480,
+                        "distribution": "exponential",
+                        "publishesTo": [
+                                "topic_topic2"
+                        ]
+                },
+                {
+                        "deviceId": "topic3_source",
+                        "deviceName": "topic3_source",
+                        "publishFrequency": 5,
+                        "messageSize": 44000,
+                        "distribution": "exponential",
+                        "publishesTo": [
+                                "topic_topic3"
+                        ]
+                },
+                {
+                        "deviceId": "topic4_source",
+                        "deviceName": "topic4_source",
+                        "publishFrequency": 4,
+                        "messageSize": 30480,
+                        "distribution": "exponential",
+                        "publishesTo": [
+                                "topic_topic4"
+                        ]
+                }
+        ],
+        "virtualSensors": [],
+        "actuators": [],
+        "applications": [
+                {
+                        "applicationName": "app_app1",
+                        "applicationId": "app_app1",
+                        "applicationCategory": "RT",
+                        "priority": 0,
+                        "processingRate": 1000,
+                        "processingDistribution": "exponential",
+                        "subscribesTo": [
+                                "topic_topic1"
+                        ]
+                },
+                {
+                        "applicationName": "app_app2",
+                        "applicationId": "app_app2",
+                        "applicationCategory": "VS",
+                        "priority": 1,
+                        "processingRate": 1000,
+                        "processingDistribution": "exponential",
+                        "subscribesTo": [
+                                "topic_topic2"
+                        ]
+                },
+                {
+                        "applicationName": "app_app3",
+                        "applicationId": "app_app3",
+                        "applicationCategory": "TS",
+                        "priority": 2,
+                        "processingRate": 1000,
+                        "processingDistribution": "exponential",
+                        "subscribesTo": [
+                                "topic_topic3"
+                        ]
+                },
+                {
+                        "applicationName": "app_app4",
+                        "applicationId": "app_app4",
+                        "applicationCategory": "AN",
+                        "priority": 3,
+                        "processingRate": 1000,
+                        "processingDistribution": "exponential",
+                        "subscribesTo": [
+                                "topic_topic4"
+                        ]
+                }
+        ],
+        "applicationCategories": [
+                {
+                        "categoryId": "AN",
+                        "categoryName": "analytics"
+                },
+                {
+                        "categoryId": "RT",
+                        "categoryName": "realtime"
+                },
+                {
+                        "categoryId": "TS",
+                        "categoryName": "transactional"
+                },
+                {
+                        "categoryId": "VS",
+                        "categoryName": "videoStreaming"
+                }
+        ],
+        "topics": [
+                {
+                        "topicId": "topic_topic1",
+                        "topicName": "topic_topic1",
+                        "publishers": [
+                                "topic1_source"
+                        ],
+                        "subscribers": [
+                                "app_app1"
+                        ]
+                },
+                {
+                        "topicId": "topic_topic2",
+                        "topicName": "topic_topic2",
+                        "publishers": [
+                                "topic2_source"
+                        ],
+                        "subscribers": [
+                                "app_app2"
+                        ]
+                },
+                {
+                        "topicId": "topic_topic3",
+                        "topicName": "topic_topic3",
+                        "publishers": [
+                                "topic3_source"
+                        ],
+                        "subscribers": [
+                                "app_app3"
+                        ]
+                },
+                {
+                        "topicId": "topic_topic4",
+                        "topicName": "topic_topic4",
+                        "publishers": [
+                                "topic4_source"
+                        ],
+                        "subscribers": [
+                                "app_app4"
+                        ]
+                }
+        ],
+        "broker": [
+                {
+                        "brokerId": "input",
+                        "brokerName": "input",
+                        "bufferSize": 10000,
+                        "processingRate": 100000000,
+                        "topics": [
+                                "topic_topic1",
+                                "topic_topic2",
+                                "topic_topic3",
+                                "topic_topic4"
+                        ]
+                }
+        ],
+        "systemBandwidth": 230,
+        "bandwidthPolicy": "default",
+        "commChannelLossAN": 0,
+        "commChannelLossRT": 0,
+        "commChannelLossTS": 0,
+        "commChannelLossVS": 0,
+        "brokerCapacity": -1
+}

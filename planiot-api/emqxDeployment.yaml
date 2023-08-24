@@ -1,0 +1,81 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: emqx-service
+spec:
+  ports:
+    - port: 18083
+      protocol: TCP
+      targetPort: 18083
+      name: http
+    - port: 1883
+      protocol: TCP
+      targetPort: 1883
+      name: tcp1
+    - port: 8083
+      protocol: TCP
+      targetPort: 8083
+      name: tcp
+    - port: 8883
+      protocol: TCP
+      targetPort: 8883
+      name: tcp2
+    - port: 8884
+      protocol: TCP
+      targetPort: 8884
+      name: tcp3
+  selector:
+    app: emqx-instance
+
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: emqx-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+    #nginx.ingress.kubernetes.io/limit-rate: "1000m"
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /planiotEmqx
+            pathType: Prefix
+            backend:
+              service:
+                name: emqx-service
+                port:
+                  number: 18083
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: emqx-deployment
+  #annotations:
+    #limits.k8s.io/network: "500Mi"
+spec:
+  selector:
+    matchLabels:
+      app: emqx-instance
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: emqx-instance
+      #annotations:
+        # Ingress bandwidth
+        kubernetes.io/ingress-bandwidth: 100M
+        # Egress bandwidth
+        kubernetes.io/egress-bandwidth: 100M
+    spec:
+      containers:
+        - name: emqx-kubernetes
+          image: emqx/emqx:5.0.9
+          ports:
+            - containerPort: 1883
+            - containerPort: 8083
+            - containerPort: 8883
+            - containerPort: 8884
+            - containerPort: 18083
+          imagePullPolicy : Always

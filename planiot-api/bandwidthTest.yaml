@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ResourceQuota
+metadata :
+  name: bandwidth-quota
+spec:
+  hard:
+    limits.k8s.io/network: "1Gi"
+
+---
+apiVersion: v1
+kind: LimitRange
+metadata:
+  name: bandwidth-limits
+spec:
+  limits:
+    - type: Pod
+      max:
+        limits.k8s.io/network: "500Mi"
+      min:
+        limits.k8.s.io/network: "100Mi"
