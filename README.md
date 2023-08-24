@@ -1,5 +1,5 @@
-﻿# PlanEMQX
-PlanEMQX is a broker for the MQTT protocol that is based on the famous open-source broker [EMQX](https://www.emqx.io/).It allows to prioritize the messages and add dropping to the different categories of messages.
+﻿# Edict-validation
+This repository contains the code that is used to validate EDICT results. It includes the code for the broker, the publishers and the subscribers. It also includes the code for the experimental framework that is used to run the experiment and collect the results.
 ## Prerequisites
 Your machine should run Ubuntu 20.04 LTS and Python 3.
 You should also install [Containernet](https://containernet.github.io/), an extension of [mininet](http://mininet.org/) that allows using Docker containers as hosts in emulated network topologies.Also you should have [Docker](https://docs.docker.com/engine/install/ubuntu/) installed.
